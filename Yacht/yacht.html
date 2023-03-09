@@ -1,0 +1,167 @@
+<!-- Designed and written by Mac Young. This is free software. You are free to use it,
+modify it, redistribute it, and study it under the terms of the Zero-Clause BSD License.
+This is version 1.0. -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+	<head>
+		<title>Yacht</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width" >
+		<link rel="top" href="/">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<h1>YACHT</h1>
+		<p><hr><p>
+		<p>Yacht is a public domain dice game that dates back to 1938. It is very similar to 
+		Yhatzee&trade; which came out some time later. You can find the rules for the game 
+		<a href="https://en.wikipedia.org/wiki/Yacht_(dice_game)#Gameplay" target="_blank">here</a>. 
+		By the way, I decied to make this open source under <a href="LICENSE.txt">the Zero-Clause BSD License</a>, 
+		so you may freely use the code as you wish, as long as the aforementioned licence is 
+		adhered to. Feel free to give me feedback and/or send me patches!</p>
+		<p>To roll the dice, press the "Roll" button. To start over, you can hit the "New Game" 
+		button and everything will be cleared.</p>
+		<div id="button_grid">
+			<div>
+				<input type="button" class="button" id="clear_all" value="New Game">
+			</div>
+			<div>
+				<input type="button" class="button" id="roll_dice" value="Roll">
+			</div>
+		</div>
+		<div>
+			<p id="rolls_left" style="font-family: monospace; font-size: 24px; 
+			font-weight: bold; text-align: center;"></p>
+		</div>
+		<div id="dice">
+			<div id="die_one" style="border: 3px solid; border-color: lime;
+			background: black; width: 50px; height: 50px; color: lime; text-align: center;
+			line-height: 50px; font-family: SILKSCREEN; font-size: 48px;">
+			</div>
+
+			<div id="die_two" style="border: 3px solid; border-color: lime;
+			background: black; width: 50px; height: 50px; color: lime; text-align: center;
+			line-height: 50px; font-family: SILKSCREEN; font-size: 48px;">
+			</div>
+
+			<div id="die_three" style="border: 3px solid; border-color: lime;
+			background: black; width: 50px; height: 50px; color: lime; text-align: center;
+			line-height: 50px; font-family: SILKSCREEN; font-size: 48px;">
+			</div>
+
+			<div id="die_four" style="border: 3px solid; border-color: lime;
+			background: black; width: 50px; height: 50px; color: lime; text-align: center;
+			line-height: 50px; font-family: SILKSCREEN; font-size: 48px;">
+			</div>
+
+			<div id="die_five" style="border: 3px solid; border-color: lime;
+			background: black; width: 50px; height: 50px; color: lime; text-align: center;
+			line-height: 50px; font-family: SILKSCREEN; font-size: 48px;">
+			</div>
+			<div>
+				<label for="hold_one">Hold: </label>
+				<input type="checkbox" id="hold_one" name="hold_one" disabled>
+			</div>
+			<div>
+				<label for="hold_two">Hold: </label>
+				<input type="checkbox" id="hold_two" name="hold_two" disabled>
+			</div>
+			<div>
+				<label for="hold_three">Hold: </label>
+				<input type="checkbox" id="hold_three" name="hold_three" disabled>
+			</div>
+			<div>
+				<label for="hold_four">Hold: </label>
+				<input type="checkbox" id="hold_four" name="hold_four" disabled>
+			</div>
+			<div>
+				<label for="hold_five">Hold: </label>
+				<input type="checkbox" id="hold_five" name="hold_five" disabled>
+			</div>
+		</div>
+		<h2 style="text-align: center; margin-top: 2em;">Score Sheet</h2>
+		<table id="scoresheet">
+            <tr>
+                <td><label for="ones">Ones</label></td>
+				<td id="ones" class="insertion"></td>
+				<td><input type="button" class="button" id="s_ones" value="Choose"></td>
+            </tr>
+            <tr>
+                <td><label for="twos">Twos</label></td>
+				<td id="twos" class="insertion"></td>
+				<td><input type="button" class="button" id="s_twos" value="Choose"></td>
+            </tr>
+            <tr>
+                <td><label for="threes">Threes</label></td>
+				<td id="threes" class="insertion"></td>
+				<td><input type="button" class="button" id="s_threes" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="fours">Fours</label></td>
+				<td id="fours" class="insertion"></td>
+				<td><input type="button" class="button" id="s_fours" value="Choose"></td>
+            </tr>
+            <tr>
+                <td><label for="fives">Fives</label></td>
+				<td id="fives" class="insertion"></td>
+				<td><input type="button" class="button" id="s_fives" value="Choose"></td>
+            </tr>
+            <tr>
+                <td><label for="sixes">Sixes</label></td>
+				<td id="sixes" class="insertion"></td>
+				<td><input type="button" class="button" id="s_sixes" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="fullhouse">Full House</label></td>
+				<td id="fullhouse" class="insertion"></td>
+				<td><input type="button" class="button" id="s_fh" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="fofk">Four of a Kind</label></td>
+				<td id="fofk" class="insertion"></td>
+				<td><input type="button" class="button" id="s_fofk" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="lstraight">Little Straight</label></td>
+				<td id="lstraight" class="insertion"></td>
+				<td><input type="button" class="button" id="s_ls" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="bstraight">Big Straight</label></td>
+				<td id="bstraight" class="insertion"></td>
+				<td><input type="button" class="button" id="s_bs" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="choice">Choice</label></td>
+				<td id="choice" class="insertion"></td>
+				<td><input type="button" class="button" id="s_choice" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="yacht">Yacht</label></td>
+				<td id="yacht" class="insertion"></td>
+				<td><input type="button" class="button" id="s_yacht" value="Choose"></td>
+            </tr>
+			<tr>
+                <td><label for="total"><b>TOTAL</b></label></td>
+				<td id="total" class="insertion"></td>
+				<td></td>
+            </tr>
+        </table>
+		<p><small>Copyright &copy; 2023 Mac Young. I &lt;3 OPEN SOURCE!</small></p>
+		<p>
+			<a href="http://validator.w3.org/check?uri=referer">
+			<img src="http://www.w3.org/Icons/valid-html401" 
+			alt="Valid HTML 4.01 Transitional" 
+			height="31" 
+			width="88">
+			</a>
+			<a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px"
+			src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+			alt="Valid CSS!">
+			</a>
+		</p>
+		<script src="yacht.js" type="text/javascript"></script>
+	</body>
+</html>
