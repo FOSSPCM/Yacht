@@ -13,7 +13,7 @@ I wrote this program a couple years ago, but never really finished it. Now, I go
 That said, I do know it is a fairly popular language these days (The web browser is pretty much the primary application everyone uses regularly), so I figured I would have to learn it eventually.
 Also, I wanted to do something graphically instead of text-based, and I collected rolling dice as a kid; so I decided to put together this simple game.
 
-[Software Demo Video]()
+[Software Demo Video](https://youtu.be/fC8Nb5gxkm4)
 
 ## Development Environment
 
